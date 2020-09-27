@@ -12,12 +12,19 @@ void raices_caso_1();
 int main(int argc, char *argv[])
 {
 
-  //Caso 1: x^2 - cos(x)
+  //Funcion: x^4+2x^3-12x^2+14x-5
   function<double(double)> f = [](double x) -> double {
     double x2 = x * x;
     double x3 = x * x * x;
     double x4 = x * x * x * x;
     return (x4 + 2 * x3 - 12 * x2 + 14 * x - 5);
+  };
+  
+  //Funcion 4x^3 + 6x^2 - 24x + 14
+  function<double(double)> df = [](double x) -> double {
+    double x2 = x * x;
+    double x3 = x * x * x;
+    return (4*x3 + 6*x3 - 24*x + 14);
   };
 
   reglafalsa rf(
