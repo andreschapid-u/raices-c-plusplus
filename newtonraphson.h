@@ -1,5 +1,6 @@
 #ifndef NEWTONRAPHSON_H
 #define NEWTONRAPHSON_H
+
 #include <cmath>
 #include <functional>
 #include <string>
@@ -26,43 +27,48 @@ public:
             double &valor_raiz) {
     //TODO implementar Newton Raphson!!
     
-    double ef=0.0 , edf=0.0, Er=0.0 , p=0.0 , c=0.0 , efp=0.0;
+    cout.precision(10);
+    // cout.width(12);
+    // std::scientific;
+    
+    double Er=0.0 , p=0.0 , c=0.0;
     int i = 1 ; //el "paso 1"
     cout<<"\n"<<"\t -- p -- "<<"\t\t -- f(p) -- "<<"\t\t-- Er -- ";
     
     //el "paso 2"
     while(i <= max_iter)
     {
-      ef = f(p0);
-      edf = df(p0);
-      c = ef / edf ; //   f(po) / f'(po)
+      c = f(p0) / df(p0) ; //   f(po) / f'(po)
       p = p0 - c;    //el "paso 3"
-      efp = f(p);
-      Er = (p - p0)/p;    if(Er<0) Er=Er*(-1); //esto es para ayudar al paso 4
+      Er = fabs((p - p0)/p);   
+      if(Er<0)
+        Er=Er*(-1); //esto es para ayudar al paso 4
       
       
       //presentacion de resultados iteracion a iteracion 
       cout<<"\n"<<i<<"\t";
-      std::cout.setf( std::ios::fixed, std:: ios::floatfield );
       std::cout << p;
-      std::cout.unsetf( std::ios::floatfield );
-      std::cout.precision(10);
-      std::cout<<"\t\t"; std::cout << efp;
+      std::cout<<"\t\t"; std::cout << f(p);
       std::cout<<"\t\t"; std::cout << Er;
       
       //el "paso 4"
-      if(Er<tolerancia) {cout<<"\n\nProcedimiento completado satisfactoriamente\n"; system("pause"); exit(1);}
+      if(Er<tolerancia){
+        cout<<"\n\nProcedimiento completado satisfactoriamente\n";
+        valor_raiz = p0;
+        return true;
+      }
       
       //el "paso 5"
       i = i + 1;
       
-      //el "paso 6"  redefinicion de po
+      //el "paso 6"  redefinicion de p0
       p0 = p;
     }
     
     //el "paso 7"
-    if((i>max_iter)||(Er>tolerancia)) {cout<<"\nEl metodo fracaso despues de "<<max_iter<<" iteraciones";}
-    cout<<"\n"; system("pause");
+    if((i>max_iter)||(Er>tolerancia)) {
+      cout<<"\nEl metodo fracaso despues de "<<max_iter<<" iteraciones";
+    }
     return false;
   }
             

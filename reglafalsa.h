@@ -1,9 +1,10 @@
 #ifndef REGLAFALSA_H
 #define REGLAFALSA_H
+
 #include <cmath>
 #include <functional>
-#include <string>
 #include <iostream>
+#include <string>
 
 using std::cout;
 using std::endl;
@@ -32,8 +33,9 @@ public:
     double xr=0.0, xra=0.0, fxi=0.0 , fxs=0.0, fxr=0.0 ;
     double validadorHayRaiz=0.0, exr=0.0, er=0.0, A=0.0 , B=0.0, C=0.0, D=0.0;
     int i = 1;
-    cout.precision(10);
-    
+    /*cout.precision(10);
+    cout.width(15);
+    cout.fill('_');*/
     fxi=f(xi);
     fxs=f(xs);
     A = xi - xs;
@@ -44,7 +46,7 @@ public:
     fxr = f(xr);
     
     cout<<"\n XR : "<<xr;
-    cout<<"\n"<<"n"<<"\t"<<"Raiz"<<"\t\t\t"<<"f(Raiz)"<<"\t\t\t"<<"Er";
+    cout<<"\n\tITER"<<"\t"<<"Raiz"<<"\t\t\t"<<"f(Raiz)"<<"\t\t\t"<<"Err"<< endl;
     
     while(i <= max_iter)
     {
@@ -73,13 +75,8 @@ public:
       }
       
       //presentacion de resultados iteracion a iteracion 
-      cout<<"\n"<<i<<"\t";
-      cout.setf( ios::fixed,  ios::floatfield );
-      cout << xr;
-      cout.unsetf( ios::floatfield );
-      cout.precision(10);
-      cout<<"\t\t"; cout << fxr;
-      cout<<"\t\t"; cout << er;
+      cout <<"\t" << i << "\t"<< cout.precision(10) << xr;
+      cout << "\t\t" << cout.precision(10) << fxr <<"\t\t" << cout.precision(10) << er << endl;
       
       //si se tiene exito:
       if((fxr==0)||(er<tolerancia)){
