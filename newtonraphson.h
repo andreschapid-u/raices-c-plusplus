@@ -55,6 +55,7 @@ public:
       if(Er<tolerancia){
         cout<<"\n\nProcedimiento completado satisfactoriamente\n";
         valor_raiz = p0;
+        cout<<"\nNumero de Iteraciones: " <<i << endl;
         return true;
       }
       

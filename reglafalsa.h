@@ -75,13 +75,14 @@ public:
       }
       
       //presentacion de resultados iteracion a iteracion 
-      cout <<"\t" << i << "\t"<< cout.precision(10) << xr;
-      cout << "\t\t" << cout.precision(10) << fxr <<"\t\t" << cout.precision(10) << er << endl;
+      cout <<"\t" << i << "\t"<< xr;
+      cout << "\t\t"  << fxr <<"\t\t" << cout.precision(10) << er << endl;
       
       //si se tiene exito:
       if((fxr==0)||(er<tolerancia)){
         cout<<"\nProcedimiento completado satisfactoriamente\n";
         valor_raiz = xr;
+        cout<<"\nNumero de Iteraciones: " <<i << endl;
         return true;
       }
       

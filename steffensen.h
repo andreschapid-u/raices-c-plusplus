@@ -52,6 +52,7 @@ public:
         
         cout<<"\nX1 : " << x1 << "\tf(" << x1 << ") = " << f(x1) << endl;
         valor_raiz = x1;
+        cout<<"\nNumero de Iteraciones: " <<i << endl;
         return true;
       }      
       cout<<"\nEl metodo fracaso despues de "<<max_iter<<" iteraciones";

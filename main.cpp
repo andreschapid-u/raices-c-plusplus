@@ -45,8 +45,8 @@ void raices_caso_1()
   //Regla falsa
   reglafalsa rf( fun, str_fun);
   cout << "\n\tRegla falsa" << "\t f(x)= " << str_fun << endl;
-  double xi = -6.0;
-  double xs = -4.0;
+  double xi = -1.0;
+  double xs = -7.0;
   if(rf.raiz(xi, xs, max_iter, tolerancia, raiz)){
     cout<<"La raiz de "<<rf.str() << " es => "<<std::setprecision(10)<<raiz<<endl;
   }else{
@@ -70,9 +70,9 @@ void raices_caso_1()
   
   //Secante
   secante s1(fun, str_fun);
-  cout << "\n\tNewton Raphson" << "\t f(x)= " << str_fun << endl;
-  double x0 = 0.0;
-  double x1 = 2.0;
+  cout << "\n\tSecante" << "\t f(x)= " << str_fun << endl;
+  double x0 = -4.0;
+  double x1 = -2.0;
   raiz = 0.0;
   if (s1.raiz(x0, x1, max_iter, tolerancia, raiz)){
     cout<<"La raiz de "<<s1.str() << " es => "<<std::setprecision(10)<<raiz<<endl;
@@ -86,9 +86,9 @@ void raices_caso_1()
   //Muller
   muller m1(fun, str_fun);
   cout << "\n\tMuller" << "\t f(x)= " << str_fun << endl;
-  double m_x0 = 3.5;
-  double m_x1= -1.8; 
-  double m_x2 = 1.0;
+  double m_x0 = -7.0;
+  double m_x1= -6.0; 
+  double m_x2 = -5.5;
   raiz =0.0;
   
   if(m1.raiz(m_x0, m_x1, m_x2, max_iter, tolerancia, raiz)){

@@ -69,6 +69,7 @@ public:
       if(fabs(er)<tolerancia){
         encontrada = true;
         valor_raiz = x3;
+        cout<<"\nNumero de Iteraciones: " <<iter << endl;
       }
       else{
         //siguiente aproximacion 

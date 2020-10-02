@@ -68,6 +68,7 @@ public:
       if((fxr==0)||(er<tolerancia)){
         cout<<"\nProcedimiento completado satisfactoriamente\n";
         valor_raiz = xr;
+        cout<<"\nNumero de Iteraciones: " <<i << endl;
         return true;
       }
       
